@@ -1,0 +1,24 @@
+{
+  "name": "@mathpix/spectra",
+  "version": "0.0.1",
+  "description": "A static site generator built on top of Mathpix Markdown",
+  "main": "spectra.js",
+  "bin": {
+    "spectra": "./spectra.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mathpix, Inc.",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "fs-extra": "^9.0.1",
+    "@11ty/eleventy": "git+ssh://git@github.com/montanaflynn/eleventy.git",
+    "@sherby/eleventy-plugin-files-minifier": "^1.1.0",
+    "commander": "^6.2.0",
+    "markdown-it": "^12.0.2",
+    "markdown-it-replace-link": "^1.1.0",
+    "mathpix-markdown-it": "^1.0.38"
+  }
+}
