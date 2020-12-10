@@ -24,5 +24,7 @@
     "markdown-it-replace-link": "^1.1.0",
     "mathpix-markdown-it": "^1.0.38"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^7.15.0"
+  }
 }
