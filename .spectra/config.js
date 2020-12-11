@@ -32,12 +32,15 @@ module.exports = function(config) {
     breaks: true,
     linkify: true,
     replaceLink(link, env) {
+
+      link = link.toLowerCase()
+
       // Skip outbound link.
       let isOutbound = new RegExp('^(?:[a-z]+:)?//', 'i');
       if (isOutbound.test(link)) { return link }
 
       // Remove markdown extension.
-      let isMarkdown = new RegExp('(?:(readme|index))?.(md|mkd|mkdn|mdwn|mdown|markdown|mdl|mmd)$', 'i');
+      let isMarkdown = new RegExp('(?:(index))?.(md|mkd|mkdn|mdwn|mdown|markdown|mdl|mmd)$', 'i');
       if (isMarkdown.test(link)) {
         link = link.replace(isMarkdown, "");
       }
@@ -55,9 +58,9 @@ module.exports = function(config) {
         return link
       }
 
-      let isInsideReadmeOrIndex = new RegExp('(?:(readme|index)).(md|mkd|mkdn|mdwn|mdown|markdown|mdl|mmd)$', 'i');
-      if (isInsideReadmeOrIndex.test(env.page.inputPath)) {
-         // Fix links inside README.md or index.md files.
+      let isInsideIndex = new RegExp('(?:(index)).(md|mkd|mkdn|mdwn|mdown|markdown|mdl|mmd)$', 'i');
+      if (isInsideIndex.test(env.page.inputPath)) {
+         // Fix links inside INDEX.md or index.md files.
         return config.getFilter("url")(link);
       } else {
         // Fix relative links.
@@ -73,12 +76,16 @@ module.exports = function(config) {
   
   config.setTemplateFormats([
     "md",
+    "mmd",
     "png",
     "gif",
     "jpg",
     "jpeg",
     "pdf",
   ]);
+
+  config.setLibrary("md", md);
+  config.setLibrary("mmd", md);
 
   config.setBrowserSyncConfig({
     logLevel: "info",
@@ -94,7 +101,6 @@ module.exports = function(config) {
       layouts: '.spectra/layout',
       data: '.spectra/layout'
     },
-    templateFormats: ['md'],
-    markdownTemplateEngine: false
+    templateFormats: ['md', 'mmd']
   };
 };
