@@ -22,9 +22,13 @@
   "scripts": {
     "test": "jest"
   },
+  "engines": {
+    "node": ">=10"
+  },
   "dependencies": {
     "@11ty/eleventy": "git+ssh://git@github.com/montanaflynn/eleventy.git#uppercase-index-and-mmd",
     "@sherby/eleventy-plugin-files-minifier": "^1.1.0",
+    "chalk": "^4.1.0",
     "commander": "^6.2.0",
     "fs-extra": "^9.0.1",
     "markdown-it": "^12.0.2",
