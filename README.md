@@ -12,44 +12,31 @@ npm install -g @mathpix/spectra
 
 ```sh
 # To convert a directory of markdown files into a static site
-spectra convert --input ./content --output ./public
+spectra ./content ./public
 
 # You can also watch the input directory for changes with --watch flag
-spectra convert --input ./content --output ./public --watch
+spectra ./content ./public --watch
 
 # If you want to preview the built html locally you can use serve command
-spectra serve --input ./content --output ./public
+spectra ./content ./public --serve
 ```
 
 ## Help
 
 ```
 $ spectra --help
-Usage: spectra [options] [command]
+Usage: spectra [options] [input] [output]
 
 A static site generator built on top of Mathpix Markdown
 
 Options:
-  -V, --version      output the version number
-  -h, --help         display help for command
-
-Commands:
-  convert [options]  convert markdown into html
-  help [command]     display help for command
-```
-
-```
-$ spectra convert --help
-Usage: spectra convert [options]
-
-Convert markdown into html and optionally watch for changes and serve locally.
-
-Options:
-  -i, --input [directory]   input directory of markdown to convert into html. (default: ".")
-  -o, --output [directory]  output directory to save the converted html. (default: "./dist")
-  -w, --watch               watch the directory of markdown for changes and convert if changed.
-  -s, --serve               serve the converted html on a local port with reloading
-  -h, --help                display help for command
+  -V, --version                     output the version number
+  -i, --input [directory-or-file]   input directory of markdown to convert into html. (default: ".")
+  -o, --output [directory-or-file]  output directory to save the converted html. (default: "./dist")
+  -w, --watch                       watch the directory of markdown for changes and convert if changed.
+  -s, --serve                       serve the converted html on a local port with reloading
+  -v, --verbose                     enable verbose mode to add more logging
+  -h, --help                        display help for command
 ```
 
 ## Configuration
