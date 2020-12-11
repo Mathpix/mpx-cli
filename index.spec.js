@@ -7,6 +7,14 @@ const fs = require("fs-extra");
 const testInput = "test/input";
 const testOutput =  path.join("test", uuid.v4());
 
+beforeAll(() => {
+    del.sync(path.join(testInput, ".spectra"));
+});
+
+afterAll(() => {
+    del.sync(path.join(testInput, ".spectra"));
+});
+
 describe("converting markdown to html", () => {
   test("should create .spectra directory in input directory if not found", async () => {
     let result = await cli([testInput, testOutput], ".");
@@ -29,7 +37,8 @@ describe("converting markdown to html", () => {
     expect(result.code).toBe(0);
     expect(fs.existsSync(`${testOutput}/index.html`)).toBe(true);
     expect(fs.existsSync(`${testOutput}/readme/index.html`)).toBe(true);
-    expect(result.stdout).toContain("Wrote 2 files");
+    expect(fs.existsSync(`${testOutput}/syntax/index.html`)).toBe(true);
+    expect(result.stdout).toContain("Wrote 3 files");
     del.sync(testOutput);
     del.sync(path.join(testInput, ".spectra"));
   });

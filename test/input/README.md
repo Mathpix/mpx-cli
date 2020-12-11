@@ -1,1 +1,3 @@
 # README
+
+![](./spectra.png)
