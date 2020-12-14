@@ -1,7 +1,7 @@
-const markdownIt = require("markdown-it");
-const markdownItReplaceLink = require('markdown-it-replace-link');
-const { mathpixMarkdownPlugin, initMathpixMarkdown } = require('mathpix-markdown-it');
-const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
+const markdownIt = require.main.require("markdown-it");
+const markdownItReplaceLink = require.main.require('markdown-it-replace-link');
+const { mathpixMarkdownPlugin, initMathpixMarkdown } = require.main.require('mathpix-markdown-it');
+const eleventyPluginFilesMinifier = require.main.require("@sherby/eleventy-plugin-files-minifier");
 
 const getMmdOptions = () => {
   return {
