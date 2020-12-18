@@ -24,6 +24,10 @@ module.exports = function(config) {
   config.addCollection('pages', collection => {
     return collection.getAllSorted().map(item => {
       item.outputPath = item.outputPath.toLowerCase();
+      item.lowerURL = item.url.toLowerCase();
+      return item
+    }).sort((a, b) => {
+      return a.lowerURL.localeCompare(b.lowerURL)
     });
   });
 
