@@ -20,7 +20,8 @@
     "spectra": "./bin/cli.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "ELEVENTY_ENV=dev node ./lib/spectra.js $npm_config_input $npm_config_output -s"
   },
   "engines": {
     "node": ">=10"

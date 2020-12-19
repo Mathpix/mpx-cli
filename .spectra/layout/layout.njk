@@ -1,22 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <style>
-      body.container {
-        width: 720px;
-        margin: 50px auto;
-      }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js" integrity="sha512-DrpaExP2d7RJqNhXB41Q/zzzQrtb6J0zfnXD5XeVEWE8d9Hj54irCLj6dRS3eNepPja7DvKcV+9PnHC7A/g83A==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/a11y-light.min.css" integrity="sha512-PW96n2amVglidqEDLPUdjJ0zByhT20poSqWJYZRutR6CP2QH58k96WmorqNnC4QXnosNeqMJM8FR/93isIifDQ==" crossorigin="anonymous" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title or metadata.title %} <title>{{ title or metadata.title }}</title> {% endif %}
-    {% if description or metadata.description %} <meta name="description" content="{{ description or metadata.description }}"> {% endif %}
+    {% if title or metadata.title %}
+      <title>{{ title or metadata.title }}</title>
+    {% endif %}
+    {% if description or metadata.description %}
+      <meta name="description" content="{{ description or metadata.description }}">
+    {% endif %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js" integrity="sha512-drpaexp2d7rjqnhxb41q/zzzqrtb6j0zfnxd5xevewe8d9hj54irclj6drs3eneppja7dvkcv+9pnhc7a/g83a==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/a11y-light.min.css" integrity="sha512-pw96n2amvglidqedlpudjj0zbyht20posqwjyzrutr6cp2qh58k96wmorqnnc4qxnosneqmjm8fr/93isiifdq==" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-oy18vbnbsjkxtndr2n6ldmo5nn31uljr8e/iczvprgpsud4gkckb8yupqhkuunoe+o9gab4o/raxxw1ojyuvzg==" crossorigin="anonymous"/>
   </head>
   <body class="container">
+    <acide class="sidebar">
+      <h2 class="sidebar__title">Mathpix OCR</h2>
+      <ul class="sidebar__list">
+        {%- for post in collections.pages -%}
+          <li class="sidebar__item">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    </acide>
     <article class="markdown-body">
       {{ content | safe }}
     </article>
