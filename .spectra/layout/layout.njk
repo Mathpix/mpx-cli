@@ -10,9 +10,9 @@
       <meta name="description" content="{{ description or metadata.description }}">
     {% endif %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js" integrity="sha512-drpaexp2d7rjqnhxb41q/zzzqrtb6j0zfnxd5xevewe8d9hj54irclj6drs3eneppja7dvkcv+9pnhc7a/g83a==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/a11y-light.min.css" integrity="sha512-pw96n2amvglidqedlpudjj0zbyht20posqwjyzrutr6cp2qh58k96wmorqnnc4qxnosneqmjm8fr/93isiifdq==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-oy18vbnbsjkxtndr2n6ldmo5nn31uljr8e/iczvprgpsud4gkckb8yupqhkuunoe+o9gab4o/raxxw1ojyuvzg==" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/main.css">
   </head>
   <body class="container">
     <acide class="sidebar">
@@ -20,14 +20,16 @@
       <ul class="sidebar__list">
         {%- for post in collections.pages -%}
           <li class="sidebar__item">
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <a href="{{ post.url }}">
+              {{ post.data.title or post.url}}
+            </a>
           </li>
         {%- endfor -%}
       </ul>
-    </div>
     </acide>
     <article class="markdown-body">
       {{ content | safe }}
     </article>
+
   </body>
 </html>
