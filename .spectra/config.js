@@ -19,13 +19,12 @@ const getMmdOptions = () => {
 };
 
 module.exports = function(config) {
-
   if(process.env.ELEVENTY_ENV !== 'dev') {
     config.addPlugin(eleventyPluginFilesMinifier);
   }
 
   config.addCollection('pages', collection => {
-    return collection.getAllSorted().map(item => {
+    return collection.getAllSorted().map((item) => {
       item.outputPath = item.outputPath.toLowerCase();
       item.lowerURL = item.url.toLowerCase();
       return item
@@ -82,7 +81,7 @@ module.exports = function(config) {
   md.use(markdownItReplaceLink)
   md = initMathpixMarkdown(md, getMmdOptions);
   md.use(mathpixMarkdownPlugin, {});
-  
+
   config.setTemplateFormats([
     "md",
     "mmd",
