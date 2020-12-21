@@ -2,6 +2,7 @@ const markdownIt = require.main.require("markdown-it");
 const markdownItReplaceLink = require.main.require('markdown-it-replace-link');
 const { mathpixMarkdownPlugin, initMathpixMarkdown } = require.main.require('mathpix-markdown-it');
 const eleventyPluginFilesMinifier = require.main.require("@sherby/eleventy-plugin-files-minifier");
+const pluginSass = require.main.require("eleventy-plugin-sass");
 
 const getMmdOptions = () => {
   return {
@@ -18,6 +19,11 @@ const getMmdOptions = () => {
   }
 };
 
+const sassPluginOptions = {
+  autoprefixer: true,
+  outputDir: './css'
+}
+
 module.exports = function(config) {
   if(process.env.ELEVENTY_ENV !== 'dev') {
     config.addPlugin(eleventyPluginFilesMinifier);
@@ -32,6 +38,7 @@ module.exports = function(config) {
     });
   });
 
+  config.addPlugin(pluginSass, sassPluginOptions);
   config.addPassthroughCopy("css");
   config.addPassthroughCopy("scripts");
 
