@@ -1,16 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
-@import './mathpix_styles.css';
+@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
+@import "./mathpix_styles.css";
 
-.container {
-  height: auto;
-  display: flex;
+.page {
   min-height: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.header {
+  background-color: #1e2029;
+  height: 45px;
+  width: 100%;
+}
+
+.main-container {
+  overflow-y: auto;
+  display: flex;
+  height: calc(100vh - 45px);
 }
 
 .sidebar {
   flex: 0 0 300px;
-  border-right: 1px solid #c8c4e6;
+  border-right: 2px solid #d8dae1;
   padding: 30px;
 }
 
@@ -25,14 +35,15 @@
   text-transform: capitalize;
 }
 
-.sidebar__item a, .sidebar__item a:visited {
+.sidebar__item a,
+.sidebar__item a:visited {
   color: #000;
 }
 
 .sidebar__item.active a {
   color: #0093ff;
   font-weight: 700;
-  letter-spacing: -.8px;
+  letter-spacing: -0.8px;
 }
 
 .sidebar__item a:hover {
@@ -41,5 +52,6 @@
 
 .markdown-body {
   padding: 40px;
-  width: calc(100% - 300px);
+  height: calc(100vh - 45px);
+  overflow-y: auto;
 }
