@@ -15,12 +15,11 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body class="container">
-    
     <acide class="sidebar">
-      <h2 class="sidebar__title">Mathpix OCR</h2>
       <ul class="sidebar__list">
         {%- for post in collections.pages -%}
-          <li class="sidebar__item">
+          <li 
+            class="sidebar__item {% if post.url == page.url %} active {% endif %}"  >
             <a href="{{ post.url }}">
               {{ post.fileSlug or 'Index page'}}
             </a>
@@ -28,9 +27,7 @@
         {%- endfor -%}
       </ul>
     </acide>
-    
-    
-    
+
     <article class="markdown-body">
       {{ content | safe }}
     </article>

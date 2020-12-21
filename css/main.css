@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 @import './mathpix_styles.css';
 
 .container {
   height: auto;
   display: flex;
   min-height: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .sidebar {
@@ -28,11 +30,13 @@
 }
 
 .sidebar__item.active a {
-  color: rgb(0, 17, 255);
+  color: #0093ff;
+  font-weight: 700;
+  letter-spacing: -.8px;
 }
 
 .sidebar__item a:hover {
-  color: rgb(0, 17, 255);
+  color: #0093ff;
 }
 
 .markdown-body {
