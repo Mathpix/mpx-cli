@@ -22,7 +22,7 @@
           {%- for post in collections.pages -%}
             <li 
             class="sidebar__item {% if post.url == page.url %} active {% endif %}"  >
-              <a href="{{ post.url }}">
+              <a href="{{ post.lowerURL }}">
                 {{ post.fileSlug or 'Index page'}}
               </a>
             </li>

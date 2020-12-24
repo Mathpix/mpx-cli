@@ -40,7 +40,6 @@ module.exports = function(config) {
 
   config.addPlugin(pluginSass, sassPluginOptions);
   config.addPassthroughCopy("css");
-  config.addPassthroughCopy("scripts");
 
   let markdownItOptions = {
     html: true,
