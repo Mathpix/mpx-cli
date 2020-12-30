@@ -2,6 +2,12 @@ const markdownIt = require.main.require("markdown-it");
 const markdownItReplaceLink = require.main.require('markdown-it-replace-link');
 const { mathpixMarkdownPlugin, initMathpixMarkdown } = require.main.require('mathpix-markdown-it');
 const eleventyPluginFilesMinifier = require.main.require("@sherby/eleventy-plugin-files-minifier");
+// const {removeExt } = require.main.require("../lib/utils/filters/");
+const util = require('util');
+const navigation = require('./navigation.json');
+
+
+
 
 const DEV_MODE = process.env.ELEVENTY_ENV === 'dev';
 
@@ -20,15 +26,15 @@ const getMmdOptions = () => {
   }
 };
 
-const sassPluginOptions = {
-  autoprefixer: true,
-  outputDir: './css'
-}
-
-module.exports = function(config) {
-  if(!DEV_MODE) {
+module.exports = function (config) {
+  if (!DEV_MODE) {
     config.addPlugin(eleventyPluginFilesMinifier);
   }
+
+  config.addNunjucksFilter('normalizePath', function(value) {
+    return value.replace(/\.[^/.]+$/, "").toLowerCase();
+  });
+
   config.addCollection('pages', collection => {
     return collection.getAllSorted().map((item) => {
       item.outputPath = item.outputPath.toLowerCase();
@@ -39,9 +45,17 @@ module.exports = function(config) {
     });
   });
 
-  if(DEV_MODE) {
+  config.addCollection('navigation', ()=> {
+    return navigation;
+  });
+
+  if (DEV_MODE) {
+    const sassPluginOptions = {
+      autoprefixer: true,
+      outputDir: './css'
+    }
     config.addPlugin(require.main.require("eleventy-plugin-sass"), sassPluginOptions);
-    config.addPassthroughCopy( 'css' );
+    config.addPassthroughCopy('css');
   }
   let markdownItOptions = {
     html: true,
@@ -76,7 +90,7 @@ module.exports = function(config) {
 
       let isInsideIndex = new RegExp('(?:(index)).(md|mkd|mkdn|mdwn|mdown|markdown|mdl|mmd)$', 'i');
       if (isInsideIndex.test(env.page.inputPath)) {
-         // Fix links inside INDEX.md or index.md files.
+        // Fix links inside INDEX.md or index.md files.
         return config.getFilter("url")(link);
       } else {
         // Fix relative links.
@@ -84,7 +98,7 @@ module.exports = function(config) {
       }
     }
   };
-  
+
   let md = markdownIt(markdownItOptions)
   md.use(markdownItReplaceLink)
   md = initMathpixMarkdown(md, getMmdOptions);

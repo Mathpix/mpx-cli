@@ -15,25 +15,37 @@
     <link rel="stylesheet" href="/css/index.css">
   </head>
   <body class="page">
-    <header class="header"></header>
-    <main class="main-container">
-      <acide class="sidebar">
-        <ul class="sidebar__list">
-          {%- for post in collections.pages -%}
-            <li 
-            class="sidebar__item {% if post.url == page.url %} active {% endif %}"  >
-              <a href="{{ post.lowerURL }}">
-                {{ post.fileSlug or 'Index page'}}
-              </a>
-            </li>
-          {%- endfor -%}
-        </ul>
-      </acide>
 
-      <article class="markdown-body">
-        {{ content | safe }}
-      </article>
-      <script src="/scripts/index.js"></script>
-    </main>
-  </body>
+    {% macro listItem(item) %}
+      <li class="sidebar__item {% if navItem.url == page.url %} active {% endif %}">
+        {% if item.children.length %}
+          <a>{{item.title}}</a>
+          <ul class="submenu">
+            {% for child in item.children %}
+              {{listItem(child)}}
+            {% endfor %}
+        </ul>
+      {% else %}
+        <a href="{{ item.path | normalizePath}}">
+          {{ item.title or 'Index page'}}
+        </a>
+      {% endif %}
+    </li>
+  {% endmacro %}
+
+  <header class="header"></header>
+  <main class="main-container">
+    <acide class="sidebar">
+      <ul class="sidebar__list">
+        {%- for navItem in collections.navigation -%}
+          {{listItem(navItem)}}
+        {%- endfor -%}
+      </ul>
+    </acide>
+    <article class="markdown-body">
+      {{ content | safe }}
+    </article>
+    <script src="/scripts/index.js"></script>
+  </main>
+</body>
 </html>
