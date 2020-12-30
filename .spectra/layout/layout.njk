@@ -26,8 +26,8 @@
             {% endfor %}
         </ul>
       {% else %}
-        <a href="{{ item.path | normalizePath}}">
-          {{ item.title or 'Index page'}}
+        <a href="{{ item.navLink | normalizePath}}">
+          {{ item.title or 'Index page'}} <span style="color: red">{{item.navLink }}</span>
         </a>
       {% endif %}
     </li>
