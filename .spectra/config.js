@@ -53,10 +53,11 @@ module.exports = function (config) {
   if (DEV_MODE) {
     const sassPluginOptions = {
       autoprefixer: true,
-      outputDir: './css'
+      outputDir: './assets/css'
     }
     config.addPlugin(require.main.require("eleventy-plugin-sass"), sassPluginOptions);
-    config.addPassthroughCopy('css');
+    config.addPassthroughCopy('assets/css');
+    config.addPassthroughCopy('assets/scripts');
   }
   let markdownItOptions = {
     html: true,
