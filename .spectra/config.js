@@ -101,6 +101,12 @@ module.exports = function (config) {
     }
   };
 
+  // config.addFilter(
+  //   "relative",
+  //   (page, root = "/") =>
+  //     `${require("path").relative(page.filePathStem, root)}/`
+  // );
+
   let md = markdownIt(markdownItOptions)
   md.use(markdownItReplaceLink)
   md = initMathpixMarkdown(md, getMmdOptions);
@@ -130,6 +136,7 @@ module.exports = function (config) {
   return {
     pathPrefix: "/",
     dir: {
+      includes: '.spectra/includes',
       layouts: '.spectra/layout',
       data: '.spectra/layout'
     },
