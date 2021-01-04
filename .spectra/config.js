@@ -31,14 +31,15 @@ module.exports = function (config) {
     config.addPlugin(eleventyPluginFilesMinifier);
   }
 
-  config.addNunjucksFilter('normalizePath', function(value) {
-    return value.replace(/\.[^/.]+$/, "").toLowerCase();
-  });
+  // config.addNunjucksFilter('normalizePath', function(value) {
+  //   return value.replace(/\.[^/.]+$/, "").toLowerCase();
+  // });
 
   config.addCollection('pages', collection => {
     return collection.getAllSorted().map((item) => {
       item.outputPath = item.outputPath.toLowerCase();
       item.lowerURL = item.url.toLowerCase();
+      item.data.page.url = item.lowerURL;
       return item
     }).sort((a, b) => {
       return a.lowerURL.localeCompare(b.lowerURL)
