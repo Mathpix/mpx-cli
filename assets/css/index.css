@@ -1,5 +1,5 @@
 /* compiled css from scss dir */
-@import "./styles/main.css";
+@import "./sass/main.css";
 
 @import "./mathpix_styles.css";
 

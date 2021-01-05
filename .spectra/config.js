@@ -56,8 +56,8 @@ module.exports = function (config) {
       outputDir: './assets/css'
     }
     config.addPlugin(require.main.require("eleventy-plugin-sass"), sassPluginOptions);
-    config.addPassthroughCopy('assets/css');
-    config.addPassthroughCopy('assets/scripts');
+    config.addPassthroughCopy('./assets/css');
+    config.addPassthroughCopy('./assets/scripts');
   }
   let markdownItOptions = {
     html: true,
@@ -101,11 +101,12 @@ module.exports = function (config) {
     }
   };
 
-  // config.addFilter(
-  //   "relative",
-  //   (page, root = "/") =>
-  //     `${require("path").relative(page.filePathStem, root)}/`
-  // );
+  config.addFilter(
+    "relative",
+    (page, root = "/") => {
+      return `${require('path').relative(page.filePathStem, root)}/`
+    }
+  );
 
   let md = markdownIt(markdownItOptions)
   md.use(markdownItReplaceLink)
