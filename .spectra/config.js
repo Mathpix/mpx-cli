@@ -116,7 +116,6 @@ module.exports = function (config) {
   };
 
   config.addFilter('relative', (page, root = '/') => {
-    console.log('page', page);
     if (page.inputPath == './index.md') {
       return './';
     }
