@@ -116,7 +116,7 @@ module.exports = function (config) {
   };
 
   config.addFilter('relative', (page, root = '/') => {
-    if (page.inputPath == './index.md') {
+    if (page.filePathStem == '/index') {
       return './';
     }
     return `${require('path').relative(page.filePathStem, root)}/`;
