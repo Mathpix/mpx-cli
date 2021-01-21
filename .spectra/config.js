@@ -6,7 +6,6 @@ const { mathpixMarkdownPlugin, initMathpixMarkdown } = require.main.require(
 const eleventyPluginFilesMinifier = require.main.require(
   '@sherby/eleventy-plugin-files-minifier'
 );
-// const {removeExt } = require.main.require("../lib/utils/filters/");
 const util = require('util');
 const navigation = require('./navigation.json');
 
@@ -31,10 +30,6 @@ module.exports = function (config) {
   if (!DEV_MODE) {
     config.addPlugin(eleventyPluginFilesMinifier);
   }
-
-  // config.addNunjucksFilter('normalizePath', function(value) {
-  //   return value.replace(/\.[^/.]+$/, "").toLowerCase();
-  // });
 
   config.addCollection('pages', (collection) => {
     return collection
@@ -116,8 +111,9 @@ module.exports = function (config) {
   };
 
   config.addFilter('relative', (page, root = '/') => {
-    if (page.filePathStem == '/index') {
-      return './';
+
+    if (page.filePathStem.includes('/index')) {
+      return `${require('path').relative(page.filePathStem, root)}/`.slice(3);
     }
     return `${require('path').relative(page.filePathStem, root)}/`;
   });

@@ -20,8 +20,11 @@
     {% macro listItem(item) %}
       <li class="navigation__item {% if item.navLink == page.url %} active {% endif %}">
         {% if item.children.length %}
-          <p>{{item.title}}</p>
-          {# <a href="{{ item.navLink | normalizePath}}">{{item.title}}</a> #}
+           {% if item.navLink %}
+              <a href={{ item.navLink }}>{{item.title}}</a>
+           {% else %}
+              <p>{{item.title}}</p>
+            {% endif %}
           <ul class="navigation__list_submenu">
             {% for child in item.children %}
               {{listItem(child)}}
@@ -50,7 +53,7 @@
     <article class="markdown-body">
       {{ content | safe }}
     </article>
-    <script src="{{ page | relative }}assets/scripts/index.js"></script>
+    {# <script src="{{ page | relative }}assets/scripts/index.js"></script> #}
   </main>
 </body>
 </html>
