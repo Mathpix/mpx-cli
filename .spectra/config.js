@@ -3,6 +3,7 @@ const markdownItReplaceLink = require.main.require('markdown-it-replace-link');
 const { mathpixMarkdownPlugin, initMathpixMarkdown } = require.main.require(
   'mathpix-markdown-it'
 );
+
 const eleventyPluginFilesMinifier = require.main.require(
   '@sherby/eleventy-plugin-files-minifier'
 );
@@ -26,10 +27,6 @@ const getMmdOptions = () => {
 };
 
 module.exports = function (config) {
-  if (!DEV_MODE) {
-    config.addPlugin(eleventyPluginFilesMinifier);
-  }
-
   config.addCollection('pages', (collection) => {
     return collection
       .getAllSorted()
@@ -44,18 +41,6 @@ module.exports = function (config) {
       });
   });
 
-  if (DEV_MODE) {
-    const sassPluginOptions = {
-      autoprefixer: true,
-      outputDir: './assets/css',
-    };
-    config.addPlugin(
-      require.main.require('eleventy-plugin-sass'),
-      sassPluginOptions
-    );
-    config.addPassthroughCopy('./assets/css');
-    config.addPassthroughCopy('./assets/scripts');
-  }
   let markdownItOptions = {
     html: true,
     breaks: true,
@@ -106,7 +91,6 @@ module.exports = function (config) {
   };
 
   config.addFilter('relative', (page, root = '/') => {
-
     if (page.filePathStem.includes('/index')) {
       return `${require('path').relative(page.filePathStem, root)}/`.slice(3);
     }
@@ -119,10 +103,8 @@ module.exports = function (config) {
   md.use(mathpixMarkdownPlugin, {});
 
   config.setTemplateFormats(['md', 'mmd', 'png', 'gif', 'jpg', 'jpeg', 'pdf']);
-
   config.setLibrary('md', md);
   config.setLibrary('mmd', md);
-
   config.setBrowserSyncConfig({
     logLevel: 'info',
     logPrefix: 'Spectra',
@@ -130,6 +112,25 @@ module.exports = function (config) {
     ui: false,
     notify: true,
   });
+
+  /* plugins */
+
+  // if (!DEV_MODE) {
+  //   config.addPlugin(eleventyPluginFilesMinifier);
+  // }
+
+  if (DEV_MODE) {
+    const sassPluginOptions = {
+      autoprefixer: true,
+      outputDir: './assets/css',
+    };
+    config.addPlugin(
+      require.main.require('eleventy-plugin-sass'),
+      sassPluginOptions
+    );
+    config.addPassthroughCopy('./assets/css');
+    config.addPassthroughCopy('./assets/scripts');
+  }
 
   return {
     pathPrefix: '/',

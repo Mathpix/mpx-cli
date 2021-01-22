@@ -1,10 +1,6 @@
 ---
-layout: welcome.njk
 title: Welcome to Spectra
 templateClass: welcome-page
-eleventyNavigation:
-  key: About Me
-  order: 3
 ---
 
 # Welcome to the Spectra!

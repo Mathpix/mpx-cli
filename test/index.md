@@ -1,15 +1,13 @@
 ---
-layout: welcome.njk
 title: Welcome to Spectra
 templateClass: welcome-page
-eleventyNavigation:
-  key: About Me
-  order: 3
 ---
 
 # Welcome to the Spectra!
 
 A static site generator built on top of Markdown with Mathpix Markdown support.
+
+### You can edit this page at ${inputDir}/index.md
 
 ## Install
 

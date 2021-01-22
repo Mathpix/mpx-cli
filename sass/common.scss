@@ -9,3 +9,23 @@
   height: 45px;
   width: 100%;
 }
+
+.link-button {
+  background-color: rgb(177, 192, 226);
+  box-shadow: 0 2px 2px rgb(71, 75, 82);
+  color: white;
+  padding: 5px 7px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+
+  &:hover {
+    background-color: rgb(139, 152, 182);
+    cursor: pointer;
+  }
+  &:active {
+    box-shadow: none;
+    top: 2px;
+  }
+}
