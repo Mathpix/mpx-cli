@@ -8,9 +8,6 @@ const eleventyPluginFilesMinifier = require.main.require(
 );
 const util = require('util');
 
-
-const navigation = require('./navigation.json');
-
 const DEV_MODE = process.env.ELEVENTY_ENV === 'dev';
 
 const getMmdOptions = () => {
@@ -45,10 +42,6 @@ module.exports = function (config) {
       .sort((a, b) => {
         return a.lowerURL.localeCompare(b.lowerURL);
       });
-  });
-
-  config.addCollection('navigation', () => {
-    return navigation;
   });
 
   if (DEV_MODE) {
@@ -142,8 +135,8 @@ module.exports = function (config) {
     pathPrefix: '/',
     dir: {
       includes: '.spectra/includes',
-      layouts: '.spectra/layout',
-      data: '.spectra/layout',
+      layouts: '.spectra/layouts',
+      data: '.spectra/data',
     },
     templateFormats: ['md', 'mmd'],
   };

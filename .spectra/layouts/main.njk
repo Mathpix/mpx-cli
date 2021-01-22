@@ -29,7 +29,7 @@ layout: layout.njk
 <main class="main-container">
 <acide class="sidebar">
   <ul class="navigation__list">
-    {%- for navItem in collections.navigation -%}
+    {%- for navItem in navigation -%}
       {{listItem(navItem)}}
     {%- endfor -%}
   </ul>

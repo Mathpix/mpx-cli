@@ -1,0 +1,16 @@
+---
+layout: layout.njk
+title: Welcome to Spectra
+---
+<main class="welcome-container">
+  <div>
+    <a class="link-button" href="{{navigation[1].navLink}}">Go to your content</a>
+
+  </div>
+
+  {# {%- for possum in possums -%}
+    <p>{{ possum.name }} is {{ possum.age }} years old</p>
+  {%- endfor -%} #}
+
+  {{ content | safe }}
+</main>
