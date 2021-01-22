@@ -7,6 +7,8 @@ const eleventyPluginFilesMinifier = require.main.require(
   '@sherby/eleventy-plugin-files-minifier'
 );
 const util = require('util');
+
+
 const navigation = require('./navigation.json');
 
 const DEV_MODE = process.env.ELEVENTY_ENV === 'dev';

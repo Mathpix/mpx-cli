@@ -1,0 +1,10 @@
+---
+layout: layout.njk
+title: Welcome to Spectra
+---
+<main class="welcome-container">
+  <div>
+    <a class="link-button" href="{{collections.navigation[1].navLink}}">Go to your content</a>
+  </div>
+  {{ content | safe }}
+</main>

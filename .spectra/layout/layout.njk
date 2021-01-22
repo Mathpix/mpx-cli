@@ -16,44 +16,8 @@
     {# <link rel="stylesheet" href="/assets/css/index.css"> #}
   </head>
   <body class="page">
-
-    {% macro listItem(item) %}
-      <li class="navigation__item {% if item.navLink == page.url %} active {% endif %}">
-        {% if item.children.length %}
-           {% if item.navLink %}
-              <a href={{ item.navLink }}>{{item.title}}</a>
-           {% else %}
-              <p>{{item.title}}</p>
-            {% endif %}
-          <ul class="navigation__list_submenu">
-            {% for child in item.children %}
-              {{listItem(child)}}
-            {% endfor %}
-        </ul>
-      {% else %}
-        <a href="{{ item.navLink }}">
-          {{ item.title or 'Index page'}}
-        </a>
-      {% endif %}
-    </li>
-  {% endmacro %}
-
-  <header class="header"></header>
-  <nav class="nav">
-    {% include "burger-button.njk" %}
-  </nav>
-  <main class="main-container">
-    <acide class="sidebar">
-      <ul class="navigation__list">
-        {%- for navItem in collections.navigation -%}
-          {{listItem(navItem)}}
-        {%- endfor -%}
-      </ul>
-    </acide>
-    <article class="markdown-body">
-      {{ content | safe }}
-    </article>
-    {# <script src="{{ page | relative }}assets/scripts/index.js"></script> #}
-  </main>
-</body>
+    <header class="header"></header>
+    {{ content | safe }}
+    <script src="{{ page | relative }}assets/scripts/index.js"></script>
+  </body>
 </html>
