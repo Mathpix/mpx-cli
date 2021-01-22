@@ -13,11 +13,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/a11y-light.min.css" integrity="sha512-pw96n2amvglidqedlpudjj0zbyht20posqwjyzrutr6cp2qh58k96wmorqnnc4qxnosneqmjm8fr/93isiifdq==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-oy18vbnbsjkxtndr2n6ldmo5nn31uljr8e/iczvprgpsud4gkckb8yupqhkuunoe+o9gab4o/raxxw1ojyuvzg==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{{ page | relative }}assets/css/index.css">
-    {# <link rel="stylesheet" href="/assets/css/index.css"> #}
   </head>
   <body class="page">
     <header class="header"></header>
     {{ content | safe }}
+    {%if generatedIndex%}
+      <script type="text/javascript">
+        document
+          .getElementById("input-dir")
+          .textContent = '{{page.inputPath.slice(2)}}';
+      </script>
+    {%endif%}
     <script src="{{ page | relative }}assets/scripts/index.js"></script>
   </body>
 </html>
