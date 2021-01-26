@@ -1,9 +1,3 @@
----
-title: Welcome to Spectra
-generatedIndex: true
----
-
-
 <h2>* You can edit this page at <span  style="color:green;" id="input-dir">${inputDir}/index.md</span>.</h1>
 
 # Welcome to the Spectra!

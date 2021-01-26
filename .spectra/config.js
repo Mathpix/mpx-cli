@@ -7,7 +7,6 @@ const { mathpixMarkdownPlugin, initMathpixMarkdown } = require.main.require(
 const eleventyPluginFilesMinifier = require.main.require(
   '@sherby/eleventy-plugin-files-minifier'
 );
-const util = require('util');
 
 const DEV_MODE = process.env.ELEVENTY_ENV === 'dev';
 
@@ -115,9 +114,9 @@ module.exports = function (config) {
 
   /* plugins */
 
-  // if (!DEV_MODE) {
-  //   config.addPlugin(eleventyPluginFilesMinifier);
-  // }
+  if (!DEV_MODE) {
+    config.addPlugin(eleventyPluginFilesMinifier);
+  }
 
   if (DEV_MODE) {
     const sassPluginOptions = {

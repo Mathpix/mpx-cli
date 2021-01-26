@@ -17,13 +17,12 @@
   <body class="page">
     <header class="header"></header>
     {{ content | safe }}
-    {%if generatedIndex%}
-      <script type="text/javascript">
-        document
-          .getElementById("input-dir")
-          .textContent = '{{page.inputPath.slice(2)}}';
-      </script>
-    {%endif%}
+    <script type="text/javascript">
+      var inputPath = document.getElementById("input-dir");
+      if(inputPath) {
+        inputPath.textContent = '{{page.inputPath.slice(2)}}';
+      }
+    </script>
     <script src="{{ page | relative }}assets/scripts/index.js"></script>
   </body>
 </html>

@@ -22,6 +22,7 @@
   "scripts": {
     "test": "jest",
     "dev": "ELEVENTY_ENV=dev node ./lib/spectra.js ./test -s",
+    "dev:input": "ELEVENTY_ENV=dev node ./lib/spectra.js $npm_config_input $npm_config_output -s",
     "lint": "npx eslint ./"
   },
   "engines": {
