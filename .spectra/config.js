@@ -30,7 +30,7 @@ module.exports = function (config) {
     return collection
       .getAllSorted()
       .map((item) => {
-        item.outputPath = item.outputPath.toLowerCase();
+        item.outputPath = item.outputPath.replace(item.filePathStem, item.filePathStem.toLowerCase());
         item.lowerURL = item.url.toLowerCase();
         item.data.page.url = item.lowerURL;
         return item;

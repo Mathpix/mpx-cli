@@ -3,7 +3,7 @@ layout: layout.njk
 ---
 
 {% macro listItem(item) %}
-  <li class="navigation__item {% if item.navLink == page.url %} active {% endif %}">
+  <li class="navigation__item {% if item.url == page.url or item.navLink == page.url %} active {% endif %}">
     {% if item.children.length %}
       {% if item.navLink %}
         <a href={{ item.navLink }}>{{item.title}}</a>
