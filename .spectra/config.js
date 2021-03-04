@@ -6,6 +6,7 @@ const eleventyPluginFilesMinifier = require.main.require("@sherby/eleventy-plugi
 const getMmdOptions = () => {
   return {
     width: 1200,
+    breaks: false,
     htmlTags: true,
     mathJax: {},
     outMath: {},
@@ -21,15 +22,24 @@ const getMmdOptions = () => {
 module.exports = function(config) {
   config.addPlugin(eleventyPluginFilesMinifier);
 
-  config.addCollection('pages', collection => {
-    return collection.getAllSorted().map(item => {
-      item.outputPath = item.outputPath.toLowerCase();
-    });
+  config.addCollection('pages', (collection) => {
+    return collection
+      .getAllSorted()
+      .map((item) => {
+        item.outputPath = item.outputPath.replace(item.filePathStem, item.filePathStem.toLowerCase());
+        item.lowerURL = item.url.toLowerCase();
+        item.data.page.url = item.lowerURL;
+        return item;
+      })
+      .sort((a, b) => {
+        return a.lowerURL.localeCompare(b.lowerURL);
+      });
   });
+
 
   let markdownItOptions = {
     html: true,
-    breaks: true,
+    breaks: false,
     linkify: true,
     replaceLink(link, env) {
 
@@ -82,6 +92,8 @@ module.exports = function(config) {
     "jpg",
     "jpeg",
     "pdf",
+    "svg",
+    "njk",
   ]);
 
   config.setLibrary("md", md);
@@ -96,11 +108,15 @@ module.exports = function(config) {
   });
 
   return {
+    markdownTemplateEngine: "md",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
+
     pathPrefix: "/",
     dir: {
       layouts: '.spectra/layout',
       data: '.spectra/layout'
     },
-    templateFormats: ['md', 'mmd']
+    templateFormats: ['md', 'mmd', 'njk']
   };
 };
