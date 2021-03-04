@@ -17,22 +17,22 @@ afterAll(() => {
 
 describe("converting markdown to html", () => {
   test("should create .spectra directory in input directory if not found", async () => {
-    let result = await cli([testInput, testOutput], ".");
+    let result = await cli(["build", testInput, testOutput], ".");
     expect(result.code).toBe(0);
-    expect(result.stdout).toContain("Created new .spectra directory at");
+    expect(result.stdout).toContain("Created new directory at test/input/.spectra");
     del.sync(testOutput);
   });
 
   test("should not create .spectra directory in input directory if found", async () => {
-    let result = await cli([testInput, testOutput], ".");
+    let result = await cli(["build", testInput, testOutput], ".");
     expect(result.code).toBe(0);
-    expect(result.stdout).not.toContain("Created new .spectra directory at");
+    expect(result.stdout).not.toContain("Created new directory at test/input/.spectra");
     del.sync(testOutput);
     del.sync(path.join(testInput, ".spectra"));
   });
 
   test("should create correct html files", async () => {
-    let result = await cli([testInput, testOutput], ".");
+    let result = await cli(["build", testInput, testOutput], ".");
     // console.log(result)
     expect(result.code).toBe(0);
     expect(fs.existsSync(`${testOutput}/index.html`)).toBe(true);
@@ -44,7 +44,7 @@ describe("converting markdown to html", () => {
   });
 
   test("should copy asset files", async () => {
-    let result = await cli([testInput, testOutput], ".");
+    let result = await cli(["build", testInput, testOutput], ".");
     // console.log(result)
     expect(result.code).toBe(0);
     expect(fs.existsSync(`${testOutput}/spectra.png`)).toBe(true);
