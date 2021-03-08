@@ -18,30 +18,32 @@ Once you copy the API key set it in an environment variable `MATHPIX_APP_KEY`:
 env MATHPIX_OCR_API_KEY=...
 ```
 
-To digitize PDF's to editable Mathpix Markdown, docx, or tex.zip:
+To digitize PDF's to editable Mathpix Markdown, docx, html or tex.zip:
 
 ```
 spectra convert input-file.pdf output-file.mmd
 spectra convert input-file.pdf output-file.docx
 spectra convert input-file.pdf output-file.tex
+spectra convert input-file.pdf output-file.html
 ```
 
 You can also compile Markdown files without using Mathpix OCR:
 
 ```
 spectra convert input-file.mmd output-file.docx
-spectra convert input-file.mmd output-file.pdf
 spectra convert input-file.mmd output-file.tex
+spectra convert input-file.mmd output-file.html
+spectra convert input-file.mmd output-file.pdf
+spectra convert input-file.mmd output-file.pdf --pdf-method html
 ```
 
-To visualize mmd files:
+To view mmd files rendered into html on a local server:
 
 ```
-spectra serve ./input-dir
 spectra serve ./input-dir/example.mmd
 ```
 
-To build a directory of mmd files:
+To build a directory of mmd files into a static html site:
 
 ```
 spectra build ./input-dir ./output-dir
