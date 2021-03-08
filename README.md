@@ -26,6 +26,14 @@ spectra convert input-file.pdf output-file.docx
 spectra convert input-file.pdf output-file.tex
 ```
 
+You can also compile Markdown files without using Mathpix OCR:
+
+```
+spectra convert input-file.mmd output-file.docx
+spectra convert input-file.mmd output-file.pdf
+spectra convert input-file.mmd output-file.tex
+```
+
 To visualize mmd files:
 
 ```
