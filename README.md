@@ -40,6 +40,7 @@ spectra convert input-file.mmd output-file.pdf --pdf-method html
 To view mmd files rendered into html on a local server:
 
 ```
+spectra serve ./input-dir
 spectra serve ./input-dir/example.mmd
 ```
 
