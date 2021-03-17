@@ -1,4 +1,4 @@
-# Spectra
+# Spectra [![npm package][npm-img]][npm-url] [![github license][license-img]][license-url]
 
 Document conversion for scientific documents.
 
@@ -8,14 +8,29 @@ Document conversion for scientific documents.
 npm install -g @mathpix/spectra
 ```
 
+## Update
+
+```
+npm update -g @mathpix/spectra
+```
+
 ## Usage
 
 Sign up at https://accounts.mathpix.com and setup an API to get your OCR API key.
 
-Once you copy the API key set it in an environment variable `MATHPIX_APP_KEY`:
+Once you copy the API key you can set it in an environment variable `MATHPIX_APP_KEY`:
 
 ```
-env MATHPIX_OCR_API_KEY=...
+export MATHPIX_OCR_API_KEY=...
+```
+
+Or save it permanently in a credentials file:
+
+```
+spectra set-api-key ...
+# This will save the key in a file at
+# ~/.spectra/credentials on Linux, macOS, or Unix
+# C:\Users\USERNAME\.spectra\credentials on Windows
 ```
 
 To digitize PDF's to editable Mathpix Markdown, docx, html or tex.zip:
@@ -68,3 +83,8 @@ Commands:
   build [options] [source] [destination]            build a static html site from a directory of markdown or mathpix markdown
   help [command]                                    display help for command
 ```
+
+[npm-img]: https://img.shields.io/npm/v/@mathpix/spectra?color=blue
+[npm-url]: https://www.npmjs.com/package/@mathpix/spectra
+[license-img]: https://img.shields.io/github/license/mathpix/spectra?color=blue
+[license-url]: https://github.com/Mathpix/spectra/blob/master/LICENSE
