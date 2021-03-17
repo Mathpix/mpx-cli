@@ -8,17 +8,11 @@ Document conversion for scientific documents.
 npm install -g @mathpix/spectra
 ```
 
-## Update
-
-```
-npm update -g @mathpix/spectra
-```
-
 ## Usage
 
 Sign up at https://accounts.mathpix.com and setup an API to get your OCR API key.
 
-Once you copy the API key you can set it in an environment variable `MATHPIX_APP_KEY`:
+Once you copy the API key you can set it as an environment variable `MATHPIX_APP_KEY`:
 
 ```
 export MATHPIX_OCR_API_KEY=...
@@ -78,9 +72,10 @@ Options:
   -h, --help                                        display help for command
 
 Commands:
-  convert [options] <source.ext> <destination.ext>  convert files between markdown, mathpix markdown, docx, latex and pdf formats
-  serve [options] <source.mmd|md>                   serve markdown or mathpix markdown rendered at html
   build [options] [source] [destination]            build a static html site from a directory of markdown or mathpix markdown
+  convert [options] <source.ext> <destination.ext>  convert files between markdown, mathpix markdown, docx, latex and pdf formats
+  serve [options] <source>                          serve markdown or mathpix markdown rendered at html
+  set-api-key [options] <mathpix_ocr_api_key>       save Mathpix OCR API key at ~/.spectra/credentials
   help [command]                                    display help for command
 ```
 
