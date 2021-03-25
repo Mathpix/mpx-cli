@@ -1,6 +1,6 @@
 {
   "name": "@mathpix/spectra",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Document conversion for scientific documents",
   "keywords": [
     "ssg",
