@@ -6,25 +6,26 @@ Document conversion for scientific documents.
 
 ```
 npm install -g @mathpix/spectra
+spectra set-api-key ...
 ```
 
 ## Usage
 
 Sign up at https://accounts.mathpix.com and setup an API to get your OCR API key.
 
-Once you copy the API key you can set it as an environment variable `MATHPIX_APP_KEY`:
+Once you copy the API key you can set it as an environment variable `MATHPIX_OCR_API_KEY`:
 
 ```
 export MATHPIX_OCR_API_KEY=...
 ```
 
-Or save it permanently in a credentials file:
+Or save it permanently in the spectra config file:
 
 ```
 spectra set-api-key ...
 # This will save the key in a file at
-# ~/.spectra/credentials on Linux, macOS, or Unix
-# C:\Users\USERNAME\.spectra\credentials on Windows
+# ~/.spectra/config on Linux, macOS, or Unix
+# C:\Users\USERNAME\.spectra\config on Windows
 ```
 
 To digitize PDF's to editable Mathpix Markdown, docx, html or tex.zip:
