@@ -1,12 +1,12 @@
 {
   "name": "@mathpix/spectra",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "@mathpix/spectra",
-      "version": "0.3.5",
+      "version": "0.3.6",
       "license": "MIT",
       "dependencies": {
         "@11ty/eleventy": "github:montanaflynn/eleventy#uppercase-index-and-mmd",
