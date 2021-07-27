@@ -19,7 +19,7 @@
         "jsdom": "^16.5.1",
         "markdown-it": "^12.0.4",
         "markdown-it-replace-link": "^1.1.0",
-        "mathpix-markdown-it": "^1.0.48",
+        "mathpix-markdown-it": "^1.0.61",
         "node-fetch": "^2.6.1",
         "serve-index": "^1.9.1",
         "window": "^4.2.7"
@@ -2981,11 +2981,6 @@
       "engines": {
         "node": ">=0.10.0"
       }
-    },
-    "node_modules/emitter-mixin": {
-      "version": "0.0.3",
-      "resolved": "https://registry.npmjs.org/emitter-mixin/-/emitter-mixin-0.0.3.tgz",
-      "integrity": "sha1-WUjLKG8uSO3DslGnz8H3iDOW1lw="
     },
     "node_modules/emittery": {
       "version": "0.7.2",
@@ -6706,9 +6701,9 @@
       }
     },
     "node_modules/mathpix-markdown-it": {
-      "version": "1.0.48",
-      "resolved": "https://registry.npmjs.org/mathpix-markdown-it/-/mathpix-markdown-it-1.0.48.tgz",
-      "integrity": "sha512-pySW5jwCoMHJ11oxrIYjELGRHYIuVktQ+mhX6TsAESHyYGN3S7m5VLxoAlhCcySET3AYsJA9x3egXy8dAPQcKA==",
+      "version": "1.0.61",
+      "resolved": "https://registry.npmjs.org/mathpix-markdown-it/-/mathpix-markdown-it-1.0.61.tgz",
+      "integrity": "sha512-sbM9h6u4UFFvVkDcITrmmWjX0mMPO8WzEIF4uVUYvM8bcapRjdqBmWg8jbXwaHvvTYdk8cHnVz2/upeztoeCEQ==",
       "dependencies": {
         "@types/node": "^11.11.7",
         "@types/react": "^17.0.0",
@@ -6716,6 +6711,7 @@
         "chai": "^4.2.0",
         "domino": "^2.1.6",
         "highlight.js": "^9.15.8",
+        "js-yaml": "^4.1.0",
         "markdown-it": "^8.4.2",
         "markdown-it-deflist": "^2.0.3",
         "markdown-it-emoji": "^1.4.0",
@@ -6738,6 +6734,22 @@
       "version": "1.1.2",
       "resolved": "https://registry.npmjs.org/entities/-/entities-1.1.2.tgz",
       "integrity": "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="
+    },
+    "node_modules/mathpix-markdown-it/node_modules/js-yaml": {
+      "version": "4.1.0",
+      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz",
+      "integrity": "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==",
+      "dependencies": {
+        "argparse": "^2.0.1"
+      },
+      "bin": {
+        "js-yaml": "bin/js-yaml.js"
+      }
+    },
+    "node_modules/mathpix-markdown-it/node_modules/js-yaml/node_modules/argparse": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz",
+      "integrity": "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
     },
     "node_modules/mathpix-markdown-it/node_modules/linkify-it": {
       "version": "2.2.0",
@@ -8589,12 +8601,11 @@
       }
     },
     "node_modules/recursive-copy": {
-      "version": "2.0.11",
-      "resolved": "https://registry.npmjs.org/recursive-copy/-/recursive-copy-2.0.11.tgz",
-      "integrity": "sha512-DqL2kO10mUne7XK5BPcwRtOJJZKhddD7IrW4UmHmKrwdV3HLPWcw6Jr4Jh12ooddfJOVz7ynFoFYYnPM7De0Og==",
+      "version": "2.0.13",
+      "resolved": "https://registry.npmjs.org/recursive-copy/-/recursive-copy-2.0.13.tgz",
+      "integrity": "sha512-BjmE6R/dOImStEku+017L3Z0I6u/lA+SVr1sySWbTLjmQKDTESNmJ9WBZP8wbN5FuvqNvSYvRKA/IKQhAjqnpQ==",
       "dependencies": {
         "del": "^2.2.0",
-        "emitter-mixin": "0.0.3",
         "errno": "^0.1.2",
         "graceful-fs": "^4.1.4",
         "junk": "^1.0.1",
@@ -14023,11 +14034,6 @@
         "jake": "^10.6.1"
       }
     },
-    "emitter-mixin": {
-      "version": "0.0.3",
-      "resolved": "https://registry.npmjs.org/emitter-mixin/-/emitter-mixin-0.0.3.tgz",
-      "integrity": "sha1-WUjLKG8uSO3DslGnz8H3iDOW1lw="
-    },
     "emittery": {
       "version": "0.7.2",
       "resolved": "https://registry.npmjs.org/emittery/-/emittery-0.7.2.tgz",
@@ -17021,9 +17027,9 @@
       }
     },
     "mathpix-markdown-it": {
-      "version": "1.0.48",
-      "resolved": "https://registry.npmjs.org/mathpix-markdown-it/-/mathpix-markdown-it-1.0.48.tgz",
-      "integrity": "sha512-pySW5jwCoMHJ11oxrIYjELGRHYIuVktQ+mhX6TsAESHyYGN3S7m5VLxoAlhCcySET3AYsJA9x3egXy8dAPQcKA==",
+      "version": "1.0.61",
+      "resolved": "https://registry.npmjs.org/mathpix-markdown-it/-/mathpix-markdown-it-1.0.61.tgz",
+      "integrity": "sha512-sbM9h6u4UFFvVkDcITrmmWjX0mMPO8WzEIF4uVUYvM8bcapRjdqBmWg8jbXwaHvvTYdk8cHnVz2/upeztoeCEQ==",
       "requires": {
         "@types/node": "^11.11.7",
         "@types/react": "^17.0.0",
@@ -17031,6 +17037,7 @@
         "chai": "^4.2.0",
         "domino": "^2.1.6",
         "highlight.js": "^9.15.8",
+        "js-yaml": "^4.1.0",
         "markdown-it": "^8.4.2",
         "markdown-it-deflist": "^2.0.3",
         "markdown-it-emoji": "^1.4.0",
@@ -17053,6 +17060,21 @@
           "version": "1.1.2",
           "resolved": "https://registry.npmjs.org/entities/-/entities-1.1.2.tgz",
           "integrity": "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="
+        },
+        "js-yaml": {
+          "version": "4.1.0",
+          "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz",
+          "integrity": "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==",
+          "requires": {
+            "argparse": "^2.0.1"
+          },
+          "dependencies": {
+            "argparse": {
+              "version": "2.0.1",
+              "resolved": "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz",
+              "integrity": "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
+            }
+          }
         },
         "linkify-it": {
           "version": "2.2.0",
@@ -18540,12 +18562,11 @@
       }
     },
     "recursive-copy": {
-      "version": "2.0.11",
-      "resolved": "https://registry.npmjs.org/recursive-copy/-/recursive-copy-2.0.11.tgz",
-      "integrity": "sha512-DqL2kO10mUne7XK5BPcwRtOJJZKhddD7IrW4UmHmKrwdV3HLPWcw6Jr4Jh12ooddfJOVz7ynFoFYYnPM7De0Og==",
+      "version": "2.0.13",
+      "resolved": "https://registry.npmjs.org/recursive-copy/-/recursive-copy-2.0.13.tgz",
+      "integrity": "sha512-BjmE6R/dOImStEku+017L3Z0I6u/lA+SVr1sySWbTLjmQKDTESNmJ9WBZP8wbN5FuvqNvSYvRKA/IKQhAjqnpQ==",
       "requires": {
         "del": "^2.2.0",
-        "emitter-mixin": "0.0.3",
         "errno": "^0.1.2",
         "graceful-fs": "^4.1.4",
         "junk": "^1.0.1",

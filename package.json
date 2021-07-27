@@ -44,7 +44,7 @@
     "jsdom": "^16.5.1",
     "markdown-it": "^12.0.4",
     "markdown-it-replace-link": "^1.1.0",
-    "mathpix-markdown-it": "^1.0.48",
+    "mathpix-markdown-it": "^1.0.61",
     "node-fetch": "^2.6.1",
     "serve-index": "^1.9.1",
     "window": "^4.2.7"
