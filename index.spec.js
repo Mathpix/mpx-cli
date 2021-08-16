@@ -5,14 +5,16 @@ const del = require("del");
 const fs = require("fs-extra");
 
 const testInput = "test/input";
-const testOutput =  path.join("test", uuid.v4());
+const testOutput = path.join("test", uuid.v4());
+
+jest.setTimeout(10000);
 
 beforeAll(() => {
-    del.sync(path.join(testInput, ".spectra"));
+  del.sync(path.join(testInput, ".spectra"));
 });
 
 afterAll(() => {
-    del.sync(path.join(testInput, ".spectra"));
+  del.sync(path.join(testInput, ".spectra"));
 });
 
 describe("converting markdown to html", () => {
@@ -52,11 +54,10 @@ describe("converting markdown to html", () => {
     del.sync(testOutput);
     del.sync(path.join(testInput, ".spectra"));
   });
-
 });
 
 function cli(args, cwd) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     exec(
       `node ${path.resolve("./bin/cli.js")} ${args.join(" ")}`,
       { cwd },
@@ -65,7 +66,7 @@ function cli(args, cwd) {
           code: error && error.code ? error.code : 0,
           error,
           stdout,
-          stderr
+          stderr,
         });
       }
     );
