@@ -1,6 +1,6 @@
 {
-  "name": "@mathpix/spectra",
-  "version": "0.3.7",
+  "name": "@mathpix/mpx-cli",
+  "version": "0.4.0",
   "description": "Document conversion for scientific documents",
   "keywords": [
     "ssg",
@@ -19,12 +19,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mathpix/spectra.git",
-    "issues": "https://github.com/mathpix/spectra/issues"
+    "url": "https://github.com/mathpix/mpx-cli.git",
+    "issues": "https://github.com/mathpix/mpx-cli/issues"
   },
-  "main": "./lib/spectra.js",
+  "main": "./lib/mpx.js",
   "bin": {
-    "spectra": "./bin/cli.js"
+    "mpx": "./bin/cli.js"
   },
   "scripts": {
     "test": "jest",

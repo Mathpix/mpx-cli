@@ -10,49 +10,47 @@ const testOutput = path.join("test", uuid.v4());
 jest.setTimeout(10000);
 
 beforeAll(() => {
-  del.sync(path.join(testInput, ".spectra"));
+  del.sync(path.join(testInput, ".mpx"));
 });
 
 afterAll(() => {
-  del.sync(path.join(testInput, ".spectra"));
+  del.sync(path.join(testInput, ".mpx"));
 });
 
 describe("converting markdown to html", () => {
-  test("should create .spectra directory in input directory if not found", async () => {
+  test("should create .mpx directory in input directory if not found", async () => {
     let result = await cli(["build", testInput, testOutput], ".");
     expect(result.code).toBe(0);
-    expect(result.stdout).toContain("Created new directory at test/input/.spectra");
+    expect(result.stdout).toContain("Created new directory at test/input/.mpx");
     del.sync(testOutput);
   });
 
-  test("should not create .spectra directory in input directory if found", async () => {
+  test("should not create .mpx directory in input directory if found", async () => {
     let result = await cli(["build", testInput, testOutput], ".");
     expect(result.code).toBe(0);
-    expect(result.stdout).not.toContain("Created new directory at test/input/.spectra");
+    expect(result.stdout).not.toContain("Created new directory at test/input/.mpx");
     del.sync(testOutput);
-    del.sync(path.join(testInput, ".spectra"));
+    del.sync(path.join(testInput, ".mpx"));
   });
 
   test("should create correct html files", async () => {
     let result = await cli(["build", testInput, testOutput], ".");
-    // console.log(result)
     expect(result.code).toBe(0);
     expect(fs.existsSync(`${testOutput}/index.html`)).toBe(true);
     expect(fs.existsSync(`${testOutput}/readme/index.html`)).toBe(true);
     expect(fs.existsSync(`${testOutput}/syntax/index.html`)).toBe(true);
     expect(result.stdout).toContain("Wrote 3 files");
     del.sync(testOutput);
-    del.sync(path.join(testInput, ".spectra"));
+    del.sync(path.join(testInput, ".mpx"));
   });
 
   test("should copy asset files", async () => {
     let result = await cli(["build", testInput, testOutput], ".");
-    // console.log(result)
     expect(result.code).toBe(0);
-    expect(fs.existsSync(`${testOutput}/spectra.png`)).toBe(true);
+    expect(fs.existsSync(`${testOutput}/mpx.png`)).toBe(true);
     expect(result.stdout).toContain("Copied 1 file");
     del.sync(testOutput);
-    del.sync(path.join(testInput, ".spectra"));
+    del.sync(path.join(testInput, ".mpx"));
   });
 });
 

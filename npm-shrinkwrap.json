@@ -1,11 +1,11 @@
 {
-  "name": "@mathpix/spectra",
+  "name": "@mathpix/mpx",
   "version": "0.3.7",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
-      "name": "@mathpix/spectra",
+      "name": "@mathpix/mpx",
       "version": "0.3.7",
       "license": "MIT",
       "dependencies": {
@@ -25,7 +25,7 @@
         "window": "^4.2.7"
       },
       "bin": {
-        "spectra": "bin/cli.js"
+        "mpx": "bin/cli.js"
       },
       "devDependencies": {
         "eslint": "^7.22.0",

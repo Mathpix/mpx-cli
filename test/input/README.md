@@ -1,3 +1,3 @@
 # README
 
-![](./spectra.png)
+![](./mpx.png)

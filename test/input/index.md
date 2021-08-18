@@ -8,4 +8,4 @@ Link to [SYNTAX](./SYNTAX.mmd)
 OC(=O)c1cc(Cl)cs1
 ```
 
-![](./spectra.png)
+![](./mpx.png)

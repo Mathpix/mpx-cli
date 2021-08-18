@@ -1,16 +1,20 @@
-# Spectra [![npm package][npm-img]][npm-url] [![github license][license-img]][license-url]
+# mpx cli [![npm package][npm-img]][npm-url] [![github license][license-img]][license-url]
 
 Document conversion for scientific documents.
 
 ## Install
 
 ```
-npm install -g @mathpix/spectra
+npm install -g @mathpix/mpx-cli
 ```
 
 ## Usage
 
-Sign up at https://accounts.mathpix.com and then run `spetra login` which will ask for your email and password and save an authorization token to be used for any commands that require connecting to our servers such as digitizing PDF files or converting Markdown to docx or pdf files.
+Sign up at https://accounts.mathpix.com and then run `mpx login` which will ask for your Mathpix email and password then save an authorization token to be used for any commands that require connecting to our servers such as digitizing PDF files or converting Markdown to docx or pdf files.
+
+```
+mpx login
+```
 
 Alternatively you can use a Mathpix API account by creating an API key from https://accounts.mathpix.com/ocr-api and then set the API key as an environment variable `MATHPIX_OCR_API_KEY`:
 
@@ -18,61 +22,61 @@ Alternatively you can use a Mathpix API account by creating an API key from http
 export MATHPIX_OCR_API_KEY=...
 ```
 
-Or save it permanently in the spectra config file:
+Or save it permanently in the mpx config file:
 
 ```
-spectra set-api-key ...
+mpx set-api-key ...
 # This will save the key in a file at
-# ~/.spectra/config on Linux, macOS, or Unix
-# C:\Users\USERNAME\.spectra\config on Windows
+# ~/.mpx/config on Linux, macOS, or Unix
+# C:\Users\USERNAME\.mpx\config on Windows
 ```
 
 To digitize PDF's to editable Mathpix Markdown, docx, html or tex.zip:
 
 ```
-spectra convert input-file.pdf output-file.mmd
-spectra convert input-file.pdf output-file.docx
-spectra convert input-file.pdf output-file.tex
-spectra convert input-file.pdf output-file.html
+mpx convert input-file.pdf output-file.mmd
+mpx convert input-file.pdf output-file.docx
+mpx convert input-file.pdf output-file.tex
+mpx convert input-file.pdf output-file.html
 ```
 
 To digitize images to editable Mathpix Markdown, docx, html or tex.zip:
 
 ```
-spectra convert input-file.png output-file.mmd
-spectra convert input-file.png output-file.docx
-spectra convert input-file.jpeg output-file.tex
-spectra convert input-file.jpeg output-file.html
+mpx convert input-file.png output-file.mmd
+mpx convert input-file.png output-file.docx
+mpx convert input-file.jpeg output-file.tex
+mpx convert input-file.jpeg output-file.html
 ```
 
 You can also compile Markdown files without using Mathpix OCR:
 
 ```
-spectra convert input-file.mmd output-file.docx
-spectra convert input-file.mmd output-file.tex
-spectra convert input-file.mmd output-file.html
-spectra convert input-file.mmd output-file.pdf
-spectra convert input-file.mmd output-file.pdf --pdf-method html
+mpx convert input-file.mmd output-file.docx
+mpx convert input-file.mmd output-file.tex
+mpx convert input-file.mmd output-file.html
+mpx convert input-file.mmd output-file.pdf
+mpx convert input-file.mmd output-file.pdf --pdf-method html
 ```
 
 To view mmd files rendered into html on a local server:
 
 ```
-spectra serve ./input-dir
-spectra serve ./input-dir/example.mmd
+mpx serve ./input-dir
+mpx serve ./input-dir/example.mmd
 ```
 
 To build a directory of mmd files into a static html site:
 
 ```
-spectra build ./input-dir ./output-dir
+mpx build ./input-dir ./output-dir
 ```
 
 The cli has built in `--help` that will show all commands and flags:
 
 ```
-$ spectra --help
-Usage: spectra command [options] [args]
+$ mpx --help
+Usage: mpx command [options] [args]
 
 Document conversion for scientific documents
 
@@ -91,7 +95,7 @@ Commands:
   help [command]                                    display help for command
 ```
 
-[npm-img]: https://img.shields.io/npm/v/@mathpix/spectra?color=blue
-[npm-url]: https://www.npmjs.com/package/@mathpix/spectra
-[license-img]: https://img.shields.io/github/license/mathpix/spectra?color=blue
-[license-url]: https://github.com/Mathpix/spectra/blob/master/LICENSE
+[npm-img]: https://img.shields.io/npm/v/@mathpix/mpx-cli?color=blue
+[npm-url]: https://www.npmjs.com/package/@mathpix/mpx-cli
+[license-img]: https://img.shields.io/github/license/mathpix/mpx-cli?color=blue
+[license-url]: https://github.com/Mathpix/mpx-cli/blob/master/LICENSE

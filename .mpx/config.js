@@ -101,7 +101,7 @@ module.exports = function(config) {
 
   config.setBrowserSyncConfig({
     logLevel: "info",
-    logPrefix: "Spectra",
+    logPrefix: "mpx",
     logFileChanges: false,
     ui: false,
     notify: true
@@ -114,8 +114,8 @@ module.exports = function(config) {
 
     pathPrefix: "/",
     dir: {
-      layouts: '.spectra/layout',
-      data: '.spectra/layout'
+      layouts: '.mpx/layout',
+      data: '.mpx/layout'
     },
     templateFormats: ['md', 'mmd', 'njk']
   };
