@@ -6,14 +6,13 @@ Document conversion for scientific documents.
 
 ```
 npm install -g @mathpix/spectra
-spectra set-api-key ...
 ```
 
 ## Usage
 
-Sign up at https://accounts.mathpix.com and setup an API to get your OCR API key.
+Sign up at https://accounts.mathpix.com and then run `spetra login` which will ask for your email and password and save an authorization token to be used for any commands that require connecting to our servers such as digitizing PDF files or converting Markdown to docx or pdf files.
 
-Once you copy the API key you can set it as an environment variable `MATHPIX_OCR_API_KEY`:
+Alternatively you can use a Mathpix API account by creating an API key from https://accounts.mathpix.com/ocr-api and then set the API key as an environment variable `MATHPIX_OCR_API_KEY`:
 
 ```
 export MATHPIX_OCR_API_KEY=...
@@ -35,6 +34,15 @@ spectra convert input-file.pdf output-file.mmd
 spectra convert input-file.pdf output-file.docx
 spectra convert input-file.pdf output-file.tex
 spectra convert input-file.pdf output-file.html
+```
+
+To digitize images to editable Mathpix Markdown, docx, html or tex.zip:
+
+```
+spectra convert input-file.png output-file.mmd
+spectra convert input-file.png output-file.docx
+spectra convert input-file.jpeg output-file.tex
+spectra convert input-file.jpeg output-file.html
 ```
 
 You can also compile Markdown files without using Mathpix OCR:
@@ -76,7 +84,10 @@ Commands:
   build [options] [source] [destination]            build a static html site from a directory of markdown or mathpix markdown
   convert [options] <source.ext> <destination.ext>  convert files between markdown, mathpix markdown, docx, latex and pdf formats
   serve [options] <source>                          serve markdown or mathpix markdown rendered at html
-  set-api-key [options] <mathpix_ocr_api_key>       save Mathpix OCR API key at ~/.spectra/credentials
+  set-api-key [options] <mathpix_ocr_api_key>       save Mathpix OCR API key
+  unset-api-key [options]                           remove Mathpix OCR API key
+  login [options]                                   log into your Mathpix Snip account and save authorization token
+  logout [options]                                  log out of your Mathpix Snip account and remove authorization token
   help [command]                                    display help for command
 ```
 
