@@ -31,14 +31,18 @@ mpx set-api-key ...
 # C:\Users\USERNAME\.mpx\config on Windows
 ```
 
-To digitize PDF's to editable Mathpix Markdown, docx, html or tex.zip:
+To digitize PDF's to editable Mathpix Markdown, docx, xlsx, html or tex.zip:
 
 ```
 mpx convert input-file.pdf output-file.mmd
 mpx convert input-file.pdf output-file.docx
+mpx convert input-file.pdf output-file.xlsx
 mpx convert input-file.pdf output-file.tex
 mpx convert input-file.pdf output-file.html
 ```
+
+`xlsx` extracts tabular content (one worksheet per detected table) and is
+currently supported for PDF sources only.
 
 To digitize images to editable Mathpix Markdown, docx, html or tex.zip:
 
